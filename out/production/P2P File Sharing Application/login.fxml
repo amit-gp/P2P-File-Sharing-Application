@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Text?>
+
+<?import javafx.scene.control.ListView?>
+<SplitPane orientation="VERTICAL" prefHeight="277.0" prefWidth="421.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="java_src.controllers.loginController">
+    <items>
+        <GridPane alignment="CENTER" hgap="15.0" prefHeight="400.0" prefWidth="600.0" vgap="15">
+
+
+            <Text fx:id="enterNameText" text="Enter your full name: " GridPane.columnIndex="0" GridPane.rowIndex="0">
+
+            </Text>
+
+            <TextField fx:id="enterNameTextField" promptText="Enter your full name here.." GridPane.columnIndex="1" GridPane.rowIndex="0">
+
+            </TextField>
+
+            <Button fx:id="chooseFileButton" onAction="#onChooseFileButtonAction" text="Choose File.." GridPane.columnIndex="0" GridPane.rowIndex="1">
+
+            </Button>
+
+            <TextField fx:id="chooseIPTextField" onKeyPressed="#onChooseIPTextFieldKeyPressed" promptText="Choose IP of reciver.." GridPane.columnIndex="1" GridPane.rowIndex="1">
+
+            </TextField>
+
+            <Text fx:id="fileChosenText" text="" GridPane.columnIndex="0" GridPane.rowIndex="2">
+
+            </Text>
+
+            <Text fx:id="IPChosenText" text="" GridPane.columnIndex="1" GridPane.rowIndex="2">
+
+            </Text>
+
+            <Button fx:id="sendButton" onAction="#onSendButtonAction" text="Send File" GridPane.columnIndex="1" GridPane.rowIndex="3">
+
+            </Button>
+
+            <columnConstraints>
+                <ColumnConstraints />
+                <ColumnConstraints />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints />
+                <RowConstraints />
+                <RowConstraints />
+                <RowConstraints />
+            </rowConstraints>
+
+        </GridPane>
+        <ListView fx:id="sentFilesListView">
+
+        </ListView>
+    </items>
+</SplitPane>

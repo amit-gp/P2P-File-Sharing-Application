@@ -2,6 +2,8 @@ package java_src.controllers;
 
 import java_src.main_src.PeerConnectionDetails;
 import javafx.application.Platform;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
@@ -53,6 +55,16 @@ public class PeerConnectionDetailsListViewCell extends ListCell<PeerConnectionDe
             PeerHeaderDetailsLabel.setText(peerConnectionDetails.getPeername());
             PeerFileDetailsLabel.setText(peerConnectionDetails.getFile());
             PeerIPDetailsLabel.setText(peerConnectionDetails.getSocket().getInetAddress().toString());
+
+            acceptButton.setOnAction(new EventHandler<ActionEvent>()
+            {
+                @Override
+                public void handle(ActionEvent event)
+                {
+                    System.out.println("Accepted file !!!");
+                }
+            });
+
             setText(null);
 
             Platform.runLater(new Runnable()

@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="P2P File Sharing Application:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/P2P_File_Sharing_Application_jar</output-path>
+    <root id="archive" name="P2P File Sharing Application.jar">
+      <element id="module-output" name="P2P File Sharing Application" />
+      <element id="extracted-dir" path="$USER_HOME$/Downloads/controlsfx-8.40.12.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/Downloads/json-20090211.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

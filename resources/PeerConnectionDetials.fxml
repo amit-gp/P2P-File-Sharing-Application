@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.*?>
-<GridPane fx:id="gridPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx"
-          xmlns:fx="http://javafx.com/fxml"
+<GridPane xmlns:fx="http://javafx.com/fxml" fx:id="gridPane" maxHeight="-Infinity" maxWidth="-Infinity"
+          minHeight="-Infinity" minWidth="-Infinity"
+          xmlns="http://javafx.com/javafx"
           hgap="10" >
 <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" />
@@ -19,6 +19,5 @@
     <Label fx:id="PeerHeaderDetailsLabel" text="Name" GridPane.columnIndex="0" GridPane.rowIndex="0"  />
     <Label fx:id="PeerFileDetailsLabel" text="File.exe"  GridPane.columnIndex="0" GridPane.rowIndex="1"/>
     <Label fx:id="PeerIPDetailsLabel" text="192.168.0.1" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-    <Button fx:id="acceptButton" text="Accept" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
 </children>
 </GridPane>

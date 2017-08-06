@@ -19,6 +19,5 @@
     <Label fx:id="PeerHeaderDetailsLabel" text="Name" GridPane.columnIndex="0" GridPane.rowIndex="0"  />
     <Label fx:id="PeerFileDetailsLabel" text="File.exe"  GridPane.columnIndex="0" GridPane.rowIndex="1"/>
     <Label fx:id="PeerIPDetailsLabel" text="192.168.0.1" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-    <Button fx:id="acceptButton" text="Accept" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
 </children>
 </GridPane>

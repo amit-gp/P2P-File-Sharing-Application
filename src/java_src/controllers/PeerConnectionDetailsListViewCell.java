@@ -10,7 +10,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 
@@ -31,7 +30,6 @@ public class PeerConnectionDetailsListViewCell extends ListCell<PeerConnectionDe
     private Label downloadProgressLabel;
     private FXMLLoader mLLoader;
 
-
     @Override
     protected void updateItem(PeerConnectionDetails peerConnectionDetails, boolean empty)
     {
@@ -44,6 +42,8 @@ public class PeerConnectionDetailsListViewCell extends ListCell<PeerConnectionDe
         }
         else
         {
+            System.out.println(peerConnectionDetails.getFileName() + " " + peerConnectionDetails.isDownloadComplete());
+
             //Here the FXML controller is specified by code and not in the fxml file. This is because, the resources like the label are null when another instance of this class is created.
             if (mLLoader == null)
             {
@@ -63,32 +63,50 @@ public class PeerConnectionDetailsListViewCell extends ListCell<PeerConnectionDe
             PeerFileDetailsLabel.setText(peerConnectionDetails.getFileName());
             PeerIPDetailsLabel.setText(peerConnectionDetails.getSocket().getInetAddress().toString());
 
-            acceptButton.setOnAction(new EventHandler<ActionEvent>()
+            if (!peerConnectionDetails.isDownloadComplete())
             {
-                @Override
-                public void handle(ActionEvent event)
+                acceptButton = new Button("Accept");
+                acceptButton.setOnAction(new EventHandler<ActionEvent>()
                 {
-                    System.out.println("Accepted file !!!");
-                    peerConnectionDetails.sendAcceptSignal();
-                    acceptButton.setDisable(true);
-                    gridPane.getChildren().remove(acceptButton);
-                    downloadProgressLabel = new Label("Downloading.....");
-                    downloadProgressLabel.setTextFill(Color.web("#0076a3"));
-                    gridPane.add(downloadProgressLabel, 1, 1);
-                    fileSender(peerConnectionDetails);
-                }
-            });
+                    @Override
+                    public void handle(ActionEvent event)
+                    {
+                        System.out.println("Accepted file !!!");
+                        peerConnectionDetails.sendAcceptSignal();
+                        acceptButton.setDisable(true);
+                        gridPane.getChildren().remove(acceptButton);
+                        downloadProgressLabel = new Label("Downloading.....");
+                        downloadProgressLabel.setTextFill(Color.web("#0076a3"));
+                        gridPane.add(downloadProgressLabel, 2, 1);
+                        fileSender(peerConnectionDetails);
+                    }
+                });
 
-            setText(null);
-
-            Platform.runLater(new Runnable()
-            {
-                @Override
-                public void run()
+                Platform.runLater(new Runnable()
                 {
-                    setGraphic(gridPane);
-                }
-            });
+                    @Override
+                    public void run()
+                    {
+                        gridPane.add(acceptButton, 1, 1);
+                        System.out.println("Creating accept for " + peerConnectionDetails.getFileName());
+                    }
+                });
+
+                setText(null);
+
+                Platform.runLater(new Runnable()
+                {
+                    @Override
+                    public void run()
+                    {
+                        setGraphic(gridPane);
+                    }
+                });
+
+            }
+            if (peerConnectionDetails.i != 0)
+                peerConnectionDetails.setDownloadComplete(true);
+            peerConnectionDetails.i++;
         }
 
     }
@@ -99,10 +117,9 @@ public class PeerConnectionDetailsListViewCell extends ListCell<PeerConnectionDe
         System.out.println("Download Complete !!");
 
         Button showFileButton = new Button("Show File");
-        showFileButton.setOnMouseClicked(new EventHandler<MouseEvent>()
+        showFileButton.setOnAction(new EventHandler<ActionEvent>()
         {
-            @Override
-            public void handle(MouseEvent event)
+            public void handle(ActionEvent event)
             {
                 File file = new File("C:\\P2P_FileSharing");
                 Desktop desktop = null;

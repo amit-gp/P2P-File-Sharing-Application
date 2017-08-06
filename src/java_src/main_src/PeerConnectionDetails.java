@@ -7,10 +7,12 @@ import java.net.Socket;
  */
 public class PeerConnectionDetails
 {
+    public int i = 0;
     private String peerName;
     private Socket socket;
     private String fileName;
     private long fileSize;
+    private boolean downloadComplete = false;
 
     //Temporary constructor to populate a test case (a list )
     public PeerConnectionDetails(String peerName, String fileName, Socket socket, long fileSize)
@@ -19,6 +21,7 @@ public class PeerConnectionDetails
         this.socket = socket;
         this.fileName = fileName;
         this.fileSize = fileSize;
+
         System.out.println(fileSize);
 
     }
@@ -49,4 +52,15 @@ public class PeerConnectionDetails
         AcceptSignalSender acceptSignalSender = new AcceptSignalSender(socket);
         new Thread(acceptSignalSender).start();
     }
+
+    public boolean isDownloadComplete()
+    {
+        return downloadComplete;
+    }
+
+    public void setDownloadComplete(boolean downloadComplete)
+    {
+        this.downloadComplete = downloadComplete;
+    }
+
 }

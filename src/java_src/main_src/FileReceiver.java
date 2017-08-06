@@ -8,17 +8,12 @@ import java.net.Socket;
  */
 public class FileReceiver implements Runnable
 {
+    private final CallBack callBack;
     private Socket socket;
     private long fileSize;
     private String fileName;
     private File file;
-    private final CallBack callBack;
     private int bufferSize;
-
-    public interface CallBack
-    {
-        public void downloadComplete();
-    }
 
     public FileReceiver(Socket socket, long fileSize, String fileName, CallBack callBack)
     {
@@ -93,5 +88,10 @@ public class FileReceiver implements Runnable
         }catch (Exception e){e.printStackTrace();}
 
         //System.out.println("Download complete");
+    }
+
+    public interface CallBack
+    {
+        void downloadComplete();
     }
 }

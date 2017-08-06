@@ -1,6 +1,5 @@
 package java_src.main_src;
 
-import java_src.controllers.loginController;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -42,8 +41,8 @@ public class ConnectionListener implements Runnable
                 dataInputStream = new DataInputStream(inputStream);
                 JSONObject peerDetailsJson = new JSONObject(dataInputStream.readUTF());
                 //Updating GUI
-                System.out.println(peerDetailsJson.getString("peerDetails"));
-                loginController.updateObservalbeList(new PeerConnectionDetails(peerDetailsJson.getString("peerName"), peerDetailsJson.getString("fileName"), peerSocket));
+                //System.out.println(peerDetailsJson.getString("peerDetails"));
+                P2P_Client.updateObservalbeList(new PeerConnectionDetails(peerDetailsJson.getString("peerName"), peerDetailsJson.getString("fileName"), peerSocket));
                 System.out.println("Connection to a peer from: " + peerSocket.getInetAddress());
                 //Sending a push notification to the user.
                 Notifications notificationBuilder = Notifications.create().title("A peer want's to Send a File !").graphic(null).hideAfter(Duration.seconds(10)).position(Pos.BOTTOM_RIGHT).onAction(new EventHandler<ActionEvent>()

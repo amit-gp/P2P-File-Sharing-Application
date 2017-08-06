@@ -25,6 +25,7 @@ public class PeerConnectionDetailsListViewCell extends ListCell<PeerConnectionDe
     @FXML private Label PeerIPDetailsLabel;
     private FXMLLoader mLLoader;
 
+
     @Override
     protected void updateItem(PeerConnectionDetails peerConnectionDetails, boolean empty)
     {
@@ -62,6 +63,7 @@ public class PeerConnectionDetailsListViewCell extends ListCell<PeerConnectionDe
                 public void handle(ActionEvent event)
                 {
                     System.out.println("Accepted file !!!");
+                    peerConnectionDetails.sendAcceptSignal();
                 }
             });
 

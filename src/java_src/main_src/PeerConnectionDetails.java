@@ -8,7 +8,7 @@ import java.net.Socket;
 public class PeerConnectionDetails
 {
     private String peerName;
-    private Socket socket;
+    protected Socket socket;
     private String file;
 
     //Temporary constructor to populate a test case (a list )
@@ -32,5 +32,12 @@ public class PeerConnectionDetails
     public Socket getSocket()
     {
         return socket;
+    }
+
+    public void sendAcceptSignal()
+    {
+        System.out.println();
+        AcceptSignalSender acceptSignalSender = new AcceptSignalSender(socket);
+        new Thread(acceptSignalSender).start();
     }
 }

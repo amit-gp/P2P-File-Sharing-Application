@@ -1,9 +1,9 @@
 package java_src.main_src;
 
 import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.OutputStream;
 import java.net.Socket;
 
 /**
@@ -34,12 +34,22 @@ public class FileSender implements Runnable
         {
             byte[] bytes = new byte[(int) file.length()];
             FileInputStream fileInputStream = new FileInputStream(file);
+
             BufferedInputStream bufferedInputStream = new BufferedInputStream(fileInputStream);
-            bufferedInputStream.read(bytes, 0, bytes.length);
-            OutputStream outputStream = socket.getOutputStream();
-            System.out.println(bytes);
-            outputStream.write(bytes, 0, bytes.length);
-            outputStream.flush();
+            BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(socket.getOutputStream());
+
+            int length = 0;
+            while ((length = bufferedInputStream.read(bytes)) > 0)
+            {
+                bufferedOutputStream.write(bytes, 0, length);
+                System.out.println(bytes);
+            }
+
+            //bufferedInputStream.read(bytes, 0, bytes.length);
+            //OutputStream outputStream = socket.getOutputStream();
+
+            //outputStream.write(bytes, 0, bytes.length);
+            bufferedOutputStream.flush();
             fileInputStream.close();
             bufferedInputStream.close();
             //outputStream.close();

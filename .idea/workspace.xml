@@ -7,13 +7,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d4aa4960-4e8e-419b-95c8-0fa7d4f888a5" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/P2P File Sharing Application/java_src/controllers/PeerConnectionDetailsListViewCell$1.class" afterPath="$PROJECT_DIR$/out/production/P2P File Sharing Application/java_src/controllers/PeerConnectionDetailsListViewCell$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/P2P File Sharing Application/java_src/controllers/PeerConnectionDetailsListViewCell.class" afterPath="$PROJECT_DIR$/out/production/P2P File Sharing Application/java_src/controllers/PeerConnectionDetailsListViewCell.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/P2P File Sharing Application/java_src/main_src/PeerConnectionDetails.class" afterPath="$PROJECT_DIR$/out/production/P2P File Sharing Application/java_src/main_src/PeerConnectionDetails.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/java_src/main_src/ConnectionListener.java" afterPath="$PROJECT_DIR$/src/java_src/main_src/ConnectionListener.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/java_src/main_src/FileReceiver.java" afterPath="$PROJECT_DIR$/src/java_src/main_src/FileReceiver.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/java_src/main_src/FileSender.java" afterPath="$PROJECT_DIR$/src/java_src/main_src/FileSender.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/java_src/main_src/PeerConnectionDetails.java" afterPath="$PROJECT_DIR$/src/java_src/main_src/PeerConnectionDetails.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -46,8 +43,8 @@
       <file leaf-file-name="FileSender.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/java_src/main_src/FileSender.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="407">
-              <caret line="41" column="14" lean-forward="false" selection-start-line="41" selection-start-column="14" selection-end-line="41" selection-end-column="14" />
+            <state relative-caret-position="356">
+              <caret line="41" column="42" lean-forward="false" selection-start-line="41" selection-start-column="42" selection-end-line="41" selection-end-column="42" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -58,8 +55,8 @@
       <file leaf-file-name="FileReceiver.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/java_src/main_src/FileReceiver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="424">
-              <caret line="53" column="10" lean-forward="false" selection-start-line="53" selection-start-column="10" selection-end-line="53" selection-end-column="10" />
+            <state relative-caret-position="322">
+              <caret line="56" column="38" lean-forward="false" selection-start-line="56" selection-start-column="38" selection-end-line="56" selection-end-column="38" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -620,7 +617,14 @@
       <option name="project" value="LOCAL" />
       <updated>1502007092195</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Adding File transfer functionality">
+      <created>1502009856614</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1502009856614</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TodoView">
@@ -901,8 +905,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/java_src/main_src/FileSender.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="407">
-          <caret line="41" column="14" lean-forward="false" selection-start-line="41" selection-start-column="14" selection-end-line="41" selection-end-column="14" />
+        <state relative-caret-position="356">
+          <caret line="41" column="42" lean-forward="false" selection-start-line="41" selection-start-column="42" selection-end-line="41" selection-end-column="42" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -911,8 +915,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/java_src/main_src/FileReceiver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="424">
-          <caret line="53" column="10" lean-forward="false" selection-start-line="53" selection-start-column="10" selection-end-line="53" selection-end-column="10" />
+        <state relative-caret-position="322">
+          <caret line="56" column="38" lean-forward="false" selection-start-line="56" selection-start-column="38" selection-end-line="56" selection-end-column="38" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

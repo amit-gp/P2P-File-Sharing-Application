@@ -42,13 +42,25 @@ public class FileReceiver implements Runnable
         byte[] bytes = new byte[((int)fileSize+1) * 1024]; //buffer
         try
         {
-        InputStream inputStream = socket.getInputStream();
+        //InputStream inputStream = socket.getInputStream();
         FileOutputStream fileOutputStream = new FileOutputStream(file);
+
+        BufferedInputStream bufferedInputStream = new BufferedInputStream(socket.getInputStream());
         BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(fileOutputStream);
         //System.out.println("File size: " + fileSize);
-        int bytesRead = inputStream.read(bytes, 0, bytes.length);
-        bufferedOutputStream.write(bytes, 0, bytesRead);
-        System.out.println(bytes);
+
+        int length = 0;
+
+        while ((length = bufferedInputStream.read(bytes)) > 0)
+        {
+            bufferedOutputStream.write(bytes, 0, length);
+            System.out.println(bytes);
+        }
+
+        //int bytesRead = inputStream.read(bytes, 0, bytes.length);
+        //bufferedOutputStream.write(bytes, 0, bytesRead);
+
+        bufferedOutputStream.flush();
         bufferedOutputStream.close();
         fileOutputStream.close();
         //inputStream.close();

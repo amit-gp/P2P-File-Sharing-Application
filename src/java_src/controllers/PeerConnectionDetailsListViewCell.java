@@ -1,5 +1,6 @@
 package java_src.controllers;
 
+import java_src.main_src.FileReceiver;
 import java_src.main_src.PeerConnectionDetails;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -9,6 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.layout.GridPane;
 
 import java.io.IOException;
@@ -16,13 +18,14 @@ import java.io.IOException;
 /**
  * Created by Amit Kumar on 04-08-2017.
  */
-public class PeerConnectionDetailsListViewCell extends ListCell<PeerConnectionDetails>
+public class PeerConnectionDetailsListViewCell extends ListCell<PeerConnectionDetails> implements FileReceiver.CallBack
 {
     @FXML private Label PeerHeaderDetailsLabel;
     @FXML private Label PeerFileDetailsLabel;
     @FXML private GridPane gridPane;
     @FXML private Button acceptButton;
     @FXML private Label PeerIPDetailsLabel;
+    private ProgressBar downloadProgressBar;
     private FXMLLoader mLLoader;
 
 
@@ -54,7 +57,7 @@ public class PeerConnectionDetailsListViewCell extends ListCell<PeerConnectionDe
             }
 
             PeerHeaderDetailsLabel.setText(peerConnectionDetails.getPeername());
-            PeerFileDetailsLabel.setText(peerConnectionDetails.getFile());
+            PeerFileDetailsLabel.setText(peerConnectionDetails.getFileName());
             PeerIPDetailsLabel.setText(peerConnectionDetails.getSocket().getInetAddress().toString());
 
             acceptButton.setOnAction(new EventHandler<ActionEvent>()
@@ -64,6 +67,11 @@ public class PeerConnectionDetailsListViewCell extends ListCell<PeerConnectionDe
                 {
                     System.out.println("Accepted file !!!");
                     peerConnectionDetails.sendAcceptSignal();
+                    acceptButton.setDisable(true);
+                    gridPane.getChildren().remove(acceptButton);
+                    downloadProgressBar = new ProgressBar();
+                    gridPane.add(downloadProgressBar, 1, 1);
+                    fileSender(peerConnectionDetails);
                 }
             });
 
@@ -79,5 +87,17 @@ public class PeerConnectionDetailsListViewCell extends ListCell<PeerConnectionDe
             });
         }
 
+    }
+
+    @Override
+    public void downloadComplete()
+    {
+        System.out.println("Download Complete !!");
+    }
+
+    private void fileSender(PeerConnectionDetails peerConnectionDetails)
+    {
+        FileReceiver fileReceiver = new FileReceiver(peerConnectionDetails.getSocket(), peerConnectionDetails.getFileSize(),peerConnectionDetails.getFileName(), this);
+        new Thread(fileReceiver).start();
     }
 }

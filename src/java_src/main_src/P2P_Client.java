@@ -27,7 +27,7 @@ import java.util.ResourceBundle;
 /**
  * Created by Amit Kumar on 01-08-2017.
  */
-public class P2P_Client implements AcceptSignalListener.CallBack, Initializable
+public class P2P_Client implements AcceptSignalListener.CallBack, Initializable, FileSender.CallBack
 {
     private static Socket sendingSocket; //Used while sending a file to another peer and then closed.
     private static ServerSocket serverSocket; // Always listening for an incoming connection.
@@ -38,6 +38,13 @@ public class P2P_Client implements AcceptSignalListener.CallBack, Initializable
 
     private File filePath;
     @FXML private Button chooseFileButton;
+
+    @Override
+    public void fileSent()
+    {
+        System.out.println("The file was sent !!!!");
+    }
+
     @FXML private Text fileChosenText;
     @FXML private TextField chooseIPTextField;
     @FXML private TextField enterNameTextField;
@@ -54,7 +61,8 @@ public class P2P_Client implements AcceptSignalListener.CallBack, Initializable
     @Override
     public void requestAccepted()
     {
-        System.out.println("Callback !!");
+        //System.out.println("Callback !!");
+
         setChooseIPTextField(IPTextFeildStates.ACCEPTED_SENDING);
     }
 
@@ -77,17 +85,16 @@ public class P2P_Client implements AcceptSignalListener.CallBack, Initializable
             outputStream = sendingSocket.getOutputStream();
             dataOutputStream = new DataOutputStream(outputStream);
             JSONObject peerDetailsJsonObject = new JSONObject();
-            peerDetailsJsonObject.put("peerDetails", "peerDetails").put("peerName", peerName).put("fileName", file.getAbsoluteFile());
+            peerDetailsJsonObject.put("peerDetails", "peerDetails").put("peerName", peerName).put("fileName", file.getName()).put("fileSize", (file.length()/ 1024));
             //First sending login info to server
             dataOutputStream.writeUTF(peerDetailsJsonObject.toString());
 
             AcceptSignalListener signalListener = new AcceptSignalListener(sendingSocket,this );
             new Thread(signalListener).start();
-            //closing streams
-            //outputStream.close();
-            //dataOutputStream.close();
-
             waitForUserAccept();
+
+            FileSender fileSender = new FileSender(sendingSocket, file, this);
+            new Thread(fileSender).start();
 
         }catch (Exception e){e.printStackTrace();}
     }

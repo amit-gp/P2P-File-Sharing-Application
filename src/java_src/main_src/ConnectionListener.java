@@ -42,7 +42,7 @@ public class ConnectionListener implements Runnable
                 JSONObject peerDetailsJson = new JSONObject(dataInputStream.readUTF());
                 //Updating GUI
                 //System.out.println(peerDetailsJson.getString("peerDetails"));
-                P2P_Client.updateObservalbeList(new PeerConnectionDetails(peerDetailsJson.getString("peerName"), peerDetailsJson.getString("fileName"), peerSocket));
+                P2P_Client.updateObservalbeList(new PeerConnectionDetails(peerDetailsJson.getString("peerName"), peerDetailsJson.getString("fileName"), peerSocket, peerDetailsJson.getLong("fileSize")) );
                 System.out.println("Connection to a peer from: " + peerSocket.getInetAddress());
                 //Sending a push notification to the user.
                 Notifications notificationBuilder = Notifications.create().title("A peer want's to Send a File !").graphic(null).hideAfter(Duration.seconds(10)).position(Pos.BOTTOM_RIGHT).onAction(new EventHandler<ActionEvent>()

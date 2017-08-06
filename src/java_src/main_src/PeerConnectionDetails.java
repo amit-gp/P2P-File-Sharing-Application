@@ -8,15 +8,23 @@ import java.net.Socket;
 public class PeerConnectionDetails
 {
     private String peerName;
-    protected Socket socket;
-    private String file;
+    private Socket socket;
+    private String fileName;
+    private long fileSize;
 
     //Temporary constructor to populate a test case (a list )
-    public PeerConnectionDetails(String peerName, String file, Socket socket)
+    public PeerConnectionDetails(String peerName, String fileName, Socket socket, long fileSize)
     {
         this.peerName = peerName;
         this.socket = socket;
-        this.file = file;
+        this.fileName = fileName;
+        this.fileSize = fileSize;
+
+    }
+
+    public long getFileSize()
+    {
+        return fileSize;
     }
 
     public String getPeername()
@@ -24,9 +32,9 @@ public class PeerConnectionDetails
         return peerName;
     }
 
-    public String getFile()
+    public String getFileName()
     {
-        return file;
+        return fileName;
     }
 
     public Socket getSocket()

@@ -114,7 +114,7 @@ public class P2P_Client implements AcceptSignalListener.CallBack, Initializable,
         FileChooser fileChooser = new FileChooser();
         filePath = fileChooser.showOpenDialog(new Stage());
         System.out.println("The file was chosen: " + filePath);
-        fileChosenText.setText(filePath.toString().substring(0, 30) + "...");
+        fileChosenText.setText(filePath.getName());
     }
 
     public void initialize(URL location, ResourceBundle resources)

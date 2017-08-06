@@ -13,6 +13,7 @@ public class FileReceiver implements Runnable
     private String fileName;
     private File file;
     private final CallBack callBack;
+    private int bufferSize;
 
     public interface CallBack
     {
@@ -40,6 +41,7 @@ public class FileReceiver implements Runnable
     {
 
         byte[] bytes = new byte[((int)fileSize+1) * 1024]; //buffer
+        bufferSize = bytes.length;
         try
         {
         //InputStream inputStream = socket.getInputStream();
@@ -50,22 +52,46 @@ public class FileReceiver implements Runnable
         //System.out.println("File size: " + fileSize);
 
         int length = 0;
-
+        int fileRead = 0;
         while ((length = bufferedInputStream.read(bytes)) > 0)
         {
-            bufferedOutputStream.write(bytes, 0, length);
-            System.out.println(bytes);
-        }
+            try
+            {
+                bufferedOutputStream.write(bytes, 0, length);
+            }catch (IOException e)
+            {
+                System.out.println("Stream finished.");
+                callBack.downloadComplete();
+                bufferedOutputStream.flush();
+                bufferedOutputStream.close();
+                fileOutputStream.close();
+            }
+            //System.out.println(bytes);
+            fileRead += bufferSize/1000;
+            System.out.println(fileRead);
 
+            if(bufferSize > fileSize)
+            {
+                callBack.downloadComplete();
+            }
+
+            if(fileRead >= fileSize * 2)
+            {
+                callBack.downloadComplete();
+            }
+
+        }
+        System.out.println("Outside");
         //int bytesRead = inputStream.read(bytes, 0, bytes.length);
         //bufferedOutputStream.write(bytes, 0, bytesRead);
-
+        //System.out.println("Download complete");
         bufferedOutputStream.flush();
         bufferedOutputStream.close();
         fileOutputStream.close();
         //inputStream.close();
+        //System.out.println("Download complete");
         }catch (Exception e){e.printStackTrace();}
 
-        callBack.downloadComplete();
+        //System.out.println("Download complete");
     }
 }

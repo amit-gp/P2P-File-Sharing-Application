@@ -10,8 +10,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
-import javafx.scene.control.ProgressBar;
 import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
 
 import java.io.IOException;
 
@@ -25,8 +25,9 @@ public class PeerConnectionDetailsListViewCell extends ListCell<PeerConnectionDe
     @FXML private GridPane gridPane;
     @FXML private Button acceptButton;
     @FXML private Label PeerIPDetailsLabel;
-    private ProgressBar downloadProgressBar;
+    private Label downloadProgressLabel;
     private FXMLLoader mLLoader;
+
 
 
     @Override
@@ -69,8 +70,9 @@ public class PeerConnectionDetailsListViewCell extends ListCell<PeerConnectionDe
                     peerConnectionDetails.sendAcceptSignal();
                     acceptButton.setDisable(true);
                     gridPane.getChildren().remove(acceptButton);
-                    downloadProgressBar = new ProgressBar();
-                    gridPane.add(downloadProgressBar, 1, 1);
+                    downloadProgressLabel = new Label("Downloading.....");
+                    downloadProgressLabel.setTextFill(Color.web("#0076a3"));
+                    gridPane.add(downloadProgressLabel, 1, 1);
                     fileSender(peerConnectionDetails);
                 }
             });
@@ -93,7 +95,19 @@ public class PeerConnectionDetailsListViewCell extends ListCell<PeerConnectionDe
     public void downloadComplete()
     {
         System.out.println("Download Complete !!");
+
+        Button showFileButton = new Button("Show File");
+        Platform.runLater(new Runnable()
+        {
+            @Override
+            public void run()
+            {
+                downloadProgressLabel.setText("Download Complete !");
+                gridPane.add(showFileButton, 2, 0);
+            }
+        });
     }
+
 
     private void fileSender(PeerConnectionDetails peerConnectionDetails)
     {

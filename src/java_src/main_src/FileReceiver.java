@@ -11,8 +11,6 @@ public class FileReceiver implements Runnable
     private Socket socket;
     private long fileSize;
     private String fileName;
-    private InputStream inputStream;
-    private OutputStream outputStream;
     private File file;
     private final CallBack callBack;
 
@@ -39,24 +37,20 @@ public class FileReceiver implements Runnable
     @Override
     public void run()
     {
-        byte[] bytes = new byte[16 * 1024]; //buffer
+        byte[] bytes = new byte[1024]; //buffer
         try
         {
-            inputStream = new FileInputStream(file);
-            outputStream = socket.getOutputStream();
-
-            int count;
-            while ((count = inputStream.read(bytes)) > 0)
-            {
-                System.out.println("Reciving " + bytes);
-                outputStream.write(bytes, 0, count);
-            }
-
-            callBack.downloadComplete();
-
+        InputStream inputStream = socket.getInputStream();
+        FileOutputStream fileOutputStream = new FileOutputStream(file);
+        BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(fileOutputStream);
+        int bytesRead = inputStream.read(bytes, 0, bytes.length);
+        bufferedOutputStream.write(bytes, 0, bytesRead);
+        System.out.println(bytes);
+        bufferedOutputStream.close();
             //outputStream.close();
             //inputStream.close();
-
         }catch (Exception e){e.printStackTrace();}
+
+        callBack.downloadComplete();
     }
 }

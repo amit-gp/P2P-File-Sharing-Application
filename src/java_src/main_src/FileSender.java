@@ -33,12 +33,16 @@ public class FileSender implements Runnable
         try
         {
             byte[] bytes = new byte[(int) file.length()];
-            BufferedInputStream bufferedInputStream = new BufferedInputStream(new FileInputStream(file));
+            FileInputStream fileInputStream = new FileInputStream(file);
+            BufferedInputStream bufferedInputStream = new BufferedInputStream(fileInputStream);
             bufferedInputStream.read(bytes, 0, bytes.length);
             OutputStream outputStream = socket.getOutputStream();
             System.out.println(bytes);
             outputStream.write(bytes, 0, bytes.length);
             outputStream.flush();
+            fileInputStream.close();
+            bufferedInputStream.close();
+            //outputStream.close();
             callBack.fileSent();
 
         }catch (Exception e){e.printStackTrace();}

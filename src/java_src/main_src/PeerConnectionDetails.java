@@ -19,6 +19,7 @@ public class PeerConnectionDetails
         this.socket = socket;
         this.fileName = fileName;
         this.fileSize = fileSize;
+        System.out.println(fileSize);
 
     }
 

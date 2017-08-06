@@ -23,6 +23,7 @@ public class FileReceiver implements Runnable
     {
         this.fileName = fileName;
         this.socket = socket;
+        this.fileSize = fileSize;
         try
         {
             file = new File("C:\\P2P_FileSharing\\" + fileName);
@@ -37,18 +38,20 @@ public class FileReceiver implements Runnable
     @Override
     public void run()
     {
-        byte[] bytes = new byte[1024]; //buffer
+
+        byte[] bytes = new byte[((int)fileSize+1) * 1024]; //buffer
         try
         {
         InputStream inputStream = socket.getInputStream();
         FileOutputStream fileOutputStream = new FileOutputStream(file);
         BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(fileOutputStream);
+        //System.out.println("File size: " + fileSize);
         int bytesRead = inputStream.read(bytes, 0, bytes.length);
         bufferedOutputStream.write(bytes, 0, bytesRead);
         System.out.println(bytes);
         bufferedOutputStream.close();
-            //outputStream.close();
-            //inputStream.close();
+        fileOutputStream.close();
+        //inputStream.close();
         }catch (Exception e){e.printStackTrace();}
 
         callBack.downloadComplete();

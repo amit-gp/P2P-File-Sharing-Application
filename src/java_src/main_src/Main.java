@@ -16,27 +16,6 @@ public class Main extends Application
 
     private static Stage primaryStage;
 
-    @Override
-    public void start(Stage stage) throws Exception
-    {
-        primaryStage = stage;
-        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("login.fxml"));
-        primaryStage.setTitle("P2P_FileShare - Login");
-        primaryStage.setScene(new Scene(root, 400, 200));
-        primaryStage.setMinWidth(400);
-        primaryStage.setMinHeight(200);
-        primaryStage.show();
-        primaryStage.setOnCloseRequest(new javafx.event.EventHandler<WindowEvent>()     //Exits program when window closes
-        {
-            @Override
-            public void handle(WindowEvent event)
-            {
-                Platform.exit();
-                System.exit(0);
-            }
-        });
-    }
-
     public static void main(String[] args)
     {
         P2P_Client p2p_client = new P2P_Client();
@@ -52,6 +31,27 @@ public class Main extends Application
             {
                 primaryStage.toFront();
                 primaryStage.requestFocus();
+            }
+        });
+    }
+
+    @Override
+    public void start(Stage stage) throws Exception
+    {
+        primaryStage = stage;
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("login.fxml"));
+        primaryStage.setTitle("P2P_FileShare - Login");
+        primaryStage.setScene(new Scene(root, 550, 500));
+        primaryStage.setMinWidth(400);
+        primaryStage.setMinHeight(200);
+        primaryStage.show();
+        primaryStage.setOnCloseRequest(new javafx.event.EventHandler<WindowEvent>()     //Exits program when window closes
+        {
+            @Override
+            public void handle(WindowEvent event)
+            {
+                Platform.exit();
+                System.exit(0);
             }
         });
     }

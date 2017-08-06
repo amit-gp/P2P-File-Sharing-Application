@@ -7,12 +7,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d4aa4960-4e8e-419b-95c8-0fa7d4f888a5" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/P2P File Sharing Application/java_src/controllers/PeerConnectionDetailsListViewCell$1.class" afterPath="$PROJECT_DIR$/out/production/P2P File Sharing Application/java_src/controllers/PeerConnectionDetailsListViewCell$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/P2P File Sharing Application/java_src/controllers/PeerConnectionDetailsListViewCell.class" afterPath="$PROJECT_DIR$/out/production/P2P File Sharing Application/java_src/controllers/PeerConnectionDetailsListViewCell.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/P2P File Sharing Application/java_src/main_src/P2P_Client.class" afterPath="$PROJECT_DIR$/out/production/P2P File Sharing Application/java_src/main_src/P2P_Client.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/login.fxml" afterPath="$PROJECT_DIR$/resources/login.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/java_src/controllers/PeerConnectionDetailsListViewCell.java" afterPath="$PROJECT_DIR$/src/java_src/controllers/PeerConnectionDetailsListViewCell.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/java_src/main_src/FileReceiver.java" afterPath="$PROJECT_DIR$/src/java_src/main_src/FileReceiver.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/java_src/main_src/FileSender.java" afterPath="$PROJECT_DIR$/src/java_src/main_src/FileSender.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/java_src/main_src/Main.java" afterPath="$PROJECT_DIR$/src/java_src/main_src/Main.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/java_src/main_src/P2P_Client.java" afterPath="$PROJECT_DIR$/src/java_src/main_src/P2P_Client.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -29,24 +28,47 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/java_src/main_src/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="26" column="39" lean-forward="true" selection-start-line="26" selection-start-column="39" selection-end-line="26" selection-end-column="39" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="P2P_Client.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/java_src/main_src/P2P_Client.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="472">
-              <caret line="44" column="53" lean-forward="true" selection-start-line="44" selection-start-column="53" selection-end-line="44" selection-end-column="53" />
+            <state relative-caret-position="270">
+              <caret line="121" column="8" lean-forward="true" selection-start-line="121" selection-start-column="8" selection-end-line="121" selection-end-column="8" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1440#1441#0" expanded="true" />
-                <element signature="e#1500#1501#0" expanded="true" />
+                <element signature="e#1647#1648#0" expanded="true" />
+                <element signature="e#1712#1713#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FileSender.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="login.fxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/login.fxml">
+          <provider editor-type-id="JavaFX-Scene-Builder">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="22" column="226" lean-forward="false" selection-start-line="22" selection-start-column="226" selection-end-line="22" selection-end-column="226" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FileSender.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/java_src/main_src/FileSender.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
+            <state relative-caret-position="935">
               <caret line="58" column="22" lean-forward="false" selection-start-line="58" selection-start-column="22" selection-end-line="58" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -70,7 +92,7 @@
       <file leaf-file-name="ConnectionListener.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/java_src/main_src/ConnectionListener.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="338">
+            <state relative-caret-position="137">
               <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -82,18 +104,18 @@
       <file leaf-file-name="PeerConnectionDetails.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/java_src/main_src/PeerConnectionDetails.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
+            <state relative-caret-position="253">
               <caret line="21" column="37" lean-forward="true" selection-start-line="21" selection-start-column="37" selection-end-line="21" selection-end-column="37" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PeerConnectionDetailsListViewCell.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="PeerConnectionDetailsListViewCell.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/java_src/controllers/PeerConnectionDetailsListViewCell.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="712">
-              <caret line="108" column="11" lean-forward="true" selection-start-line="108" selection-start-column="11" selection-end-line="108" selection-end-column="11" />
+            <state relative-caret-position="374">
+              <caret line="114" column="37" lean-forward="false" selection-start-line="114" selection-start-column="37" selection-end-line="114" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -146,18 +168,18 @@
         <option value="$PROJECT_DIR$/resources/PeerConnectionDetials.fxml" />
         <option value="$PROJECT_DIR$/src/java_src/main_src/sentFileAcceptListener.java" />
         <option value="$PROJECT_DIR$/src/java_src/main_src/SentFileAcceptListener.java" />
-        <option value="$PROJECT_DIR$/src/java_src/main_src/Main.java" />
         <option value="$PROJECT_DIR$/src/java_src/controllers/loginController.java" />
-        <option value="$PROJECT_DIR$/resources/login.fxml" />
         <option value="$PROJECT_DIR$/src/java_src/main_src/AcceptSignalSender.java" />
         <option value="$PROJECT_DIR$/src/java_src/main_src/FileSende.java" />
         <option value="$PROJECT_DIR$/src/java_src/main_src/ConnectionListener.java" />
         <option value="$PROJECT_DIR$/src/java_src/main_src/PeerConnectionDetails.java" />
         <option value="$PROJECT_DIR$/src/java_src/main_src/AcceptSignalListener.java" />
-        <option value="$PROJECT_DIR$/src/java_src/main_src/P2P_Client.java" />
-        <option value="$PROJECT_DIR$/src/java_src/controllers/PeerConnectionDetailsListViewCell.java" />
         <option value="$PROJECT_DIR$/src/java_src/main_src/FileReceiver.java" />
         <option value="$PROJECT_DIR$/src/java_src/main_src/FileSender.java" />
+        <option value="$PROJECT_DIR$/resources/login.fxml" />
+        <option value="$PROJECT_DIR$/src/java_src/main_src/P2P_Client.java" />
+        <option value="$PROJECT_DIR$/src/java_src/main_src/Main.java" />
+        <option value="$PROJECT_DIR$/src/java_src/controllers/PeerConnectionDetailsListViewCell.java" />
       </list>
     </option>
   </component>
@@ -631,7 +653,14 @@
       <option name="project" value="LOCAL" />
       <updated>1502010507696</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Can now transfer extremely large files (However long)">
+      <created>1502020652489</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1502020652489</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TodoView">
@@ -683,7 +712,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Basic GUI functionality" />
     <MESSAGE value="Adding File transfer functionality" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding File transfer functionality" />
+    <MESSAGE value="Can now transfer extremely large files (However long)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Can now transfer extremely large files (However long)" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -743,8 +773,8 @@
           <caret line="116" column="108" lean-forward="true" selection-start-line="116" selection-start-column="108" selection-end-line="116" selection-end-column="108" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1440#1441#0" expanded="true" />
-            <element signature="e#1500#1501#0" expanded="true" />
+            <element signature="e#1647#1648#0" expanded="true" />
+            <element signature="e#1712#1713#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -806,18 +836,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
           <caret line="44" column="9" lean-forward="false" selection-start-line="44" selection-start-column="9" selection-end-line="44" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/java_src/controllers/loginController.java" />
-    <entry file="file://$PROJECT_DIR$/src/java_src/main_src/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="833">
-          <caret line="55" column="11" lean-forward="false" selection-start-line="55" selection-start-column="11" selection-end-line="55" selection-end-column="11" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/java_src/controllers/loginController.java" />
     <entry file="file://$PROJECT_DIR$/src/java_src/main_src/FileSende.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -847,63 +870,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/login.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="18" column="43" lean-forward="false" selection-start-line="18" selection-start-column="43" selection-end-line="18" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/java_src/main_src/PeerConnectionDetails.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="37" lean-forward="true" selection-start-line="21" selection-start-column="37" selection-end-line="21" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/java_src/controllers/PeerConnectionDetailsListViewCell.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="712">
-          <caret line="108" column="11" lean-forward="true" selection-start-line="108" selection-start-column="11" selection-end-line="108" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/java_src/main_src/AcceptSignalListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2">
-          <caret line="20" column="38" lean-forward="true" selection-start-line="20" selection-start-column="38" selection-end-line="20" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/java_src/main_src/P2P_Client.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="472">
-          <caret line="44" column="53" lean-forward="true" selection-start-line="44" selection-start-column="53" selection-end-line="44" selection-end-column="53" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1440#1441#0" expanded="true" />
-            <element signature="e#1500#1501#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/java_src/main_src/ConnectionListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/java_src/main_src/FileReceiver.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="430">
@@ -916,11 +882,76 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/java_src/main_src/FileSender.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
+        <state relative-caret-position="935">
           <caret line="58" column="22" lean-forward="false" selection-start-line="58" selection-start-column="22" selection-end-line="58" selection-end-column="22" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/login.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="22" column="226" lean-forward="false" selection-start-line="22" selection-start-column="226" selection-end-line="22" selection-end-column="226" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/java_src/main_src/ConnectionListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="137">
+          <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/java_src/main_src/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="26" column="39" lean-forward="true" selection-start-line="26" selection-start-column="39" selection-end-line="26" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/java_src/main_src/P2P_Client.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="121" column="8" lean-forward="true" selection-start-line="121" selection-start-column="8" selection-end-line="121" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1647#1648#0" expanded="true" />
+            <element signature="e#1712#1713#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/java_src/main_src/AcceptSignalListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2">
+          <caret line="20" column="38" lean-forward="true" selection-start-line="20" selection-start-column="38" selection-end-line="20" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/java_src/main_src/PeerConnectionDetails.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="21" column="37" lean-forward="true" selection-start-line="21" selection-start-column="37" selection-end-line="21" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/java_src/controllers/PeerConnectionDetailsListViewCell.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="114" column="37" lean-forward="false" selection-start-line="114" selection-start-column="37" selection-end-line="114" selection-end-column="37" />
+          <folding />
         </state>
       </provider>
     </entry>

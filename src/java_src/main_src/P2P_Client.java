@@ -29,33 +29,44 @@ import java.util.ResourceBundle;
  */
 public class P2P_Client implements AcceptSignalListener.CallBack, Initializable, FileSender.CallBack
 {
+    private static final int PORT = 8080;
     private static Socket sendingSocket; //Used while sending a file to another peer and then closed.
     private static ServerSocket serverSocket; // Always listening for an incoming connection.
-    private static final int PORT = 8080;
     private static ConnectionListener connectionListener;
     private static OutputStream outputStream;
     private static DataOutputStream dataOutputStream;
-
+    private static ObservableList<PeerConnectionDetails> sentFilesObservableList;
     private File filePath;
     @FXML private Button chooseFileButton;
-
-    @Override
-    public void fileSent()
-    {
-        System.out.println("The file was sent !!!!");
-    }
-
     @FXML private Text fileChosenText;
     @FXML private TextField chooseIPTextField;
     @FXML private TextField enterNameTextField;
     @FXML private Text IPChosenText;
     @FXML private Button sendButton;
     @FXML private ListView<PeerConnectionDetails> sentFilesListView;
-    private static ObservableList<PeerConnectionDetails> sentFilesObservableList;
-
     public P2P_Client()
     {
         sentFilesObservableList = FXCollections.observableArrayList();
+    }
+
+    public static void updateObservalbeList(PeerConnectionDetails peerConnectionDetails)
+    {
+        sentFilesObservableList.addAll(peerConnectionDetails);
+    }
+
+    @Override
+    public void fileSent()
+    {
+        System.out.println("The file was sent !!");
+        enableSendElements();
+        setChooseIPTextField(IPTextFeildStates.DONE);
+
+    }
+
+    @FXML
+    private void onChooseIPTextFieldMouseClicked()
+    {
+        setChooseIPTextField(IPTextFeildStates.INCORRECT);
     }
 
     @Override
@@ -104,11 +115,6 @@ public class P2P_Client implements AcceptSignalListener.CallBack, Initializable,
         new Thread(connectionListener).start();
     }
 
-    public static void updateObservalbeList(PeerConnectionDetails peerConnectionDetails)
-    {
-        sentFilesObservableList.addAll(peerConnectionDetails);
-    }
-
     @FXML private void onChooseFileButtonAction()
     {
         FileChooser fileChooser = new FileChooser();
@@ -146,27 +152,12 @@ public class P2P_Client implements AcceptSignalListener.CallBack, Initializable,
         sendFile(filePath, chooseIPTextField.getText(), enterNameTextField.getText());
     }
 
-    private enum IPTextFeildStates
-    {
-        INCORRECT, CHECKING, ONLINE, AWAITING, ACCEPTED_SENDING
-    }
-
     private void setChooseIPTextField(IPTextFeildStates ipState)
     {
         switch (ipState)
         {
-            case ONLINE:
-                IPChosenText.setText("USer is online !!!");
-                IPChosenText.setFill(Color.DARKGREEN);
-                break;
-
-            case CHECKING:
-                IPChosenText.setText("Checking if user is online..");
-                IPChosenText.setFill(Color.DARKBLUE);
-                break;
-
             case INCORRECT:
-                IPChosenText.setText("Please enter a valid IP");
+                IPChosenText.setText("Enter a valid IP here.");
                 IPChosenText.setFill(Color.RED);
                 break;
 
@@ -177,8 +168,12 @@ public class P2P_Client implements AcceptSignalListener.CallBack, Initializable,
 
             case ACCEPTED_SENDING:
                 IPChosenText.setText("User accepted !! Sending file\nPlease wait...");
-                IPChosenText.setFill(Color.RED);
+                IPChosenText.setFill(Color.AQUA);
                 break;
+
+            case DONE:
+                IPChosenText.setText("File Sent");
+                IPChosenText.setFill(Color.AQUA);
         }
     }
 
@@ -194,5 +189,18 @@ public class P2P_Client implements AcceptSignalListener.CallBack, Initializable,
         chooseIPTextField.setDisable(true);
         chooseFileButton.setDisable(true);
         enterNameTextField.setDisable(true);
+    }
+
+    public void enableSendElements()
+    {
+        sendButton.setDisable(false);
+        chooseIPTextField.setDisable(false);
+        chooseFileButton.setDisable(false);
+        enterNameTextField.setDisable(false);
+    }
+
+    private enum IPTextFeildStates
+    {
+        INCORRECT, DONE, AWAITING, ACCEPTED_SENDING
     }
 }

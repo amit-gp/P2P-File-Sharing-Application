@@ -10,9 +10,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 
+import java.awt.*;
+import java.io.File;
 import java.io.IOException;
 
 /**
@@ -27,7 +30,6 @@ public class PeerConnectionDetailsListViewCell extends ListCell<PeerConnectionDe
     @FXML private Label PeerIPDetailsLabel;
     private Label downloadProgressLabel;
     private FXMLLoader mLLoader;
-
 
 
     @Override
@@ -97,6 +99,28 @@ public class PeerConnectionDetailsListViewCell extends ListCell<PeerConnectionDe
         System.out.println("Download Complete !!");
 
         Button showFileButton = new Button("Show File");
+        showFileButton.setOnMouseClicked(new EventHandler<MouseEvent>()
+        {
+            @Override
+            public void handle(MouseEvent event)
+            {
+                File file = new File("C:\\P2P_FileSharing");
+                Desktop desktop = null;
+                if (Desktop.isDesktopSupported())
+                {
+                    desktop = Desktop.getDesktop();
+                }
+                try
+                {
+                    desktop.open(file);
+
+                } catch (Exception e)
+                {
+                    e.printStackTrace();
+                }
+            }
+        });
+
         Platform.runLater(new Runnable()
         {
             @Override

@@ -3,7 +3,8 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Text?>
-<SplitPane orientation="VERTICAL" prefHeight="277.0" prefWidth="421.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="java_src.main_src.P2P_Client">
+<SplitPane xmlns:fx="http://javafx.com/fxml/1" orientation="VERTICAL" prefHeight="277.0" prefWidth="421.0"
+           xmlns="http://javafx.com/javafx/8.0.112" fx:controller="java_src.main_src.P2P_Client">
     <items>
         <GridPane alignment="CENTER" hgap="15.0" prefHeight="400.0" prefWidth="600.0" vgap="15">
 
@@ -20,7 +21,9 @@
 
             </Button>
 
-            <TextField fx:id="chooseIPTextField" onKeyPressed="#onChooseIPTextFieldKeyPressed" promptText="Choose IP of reciver.." GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <TextField fx:id="chooseIPTextField" onKeyPressed="#onChooseIPTextFieldKeyPressed"
+                       promptText="Choose IP of reciver.." GridPane.columnIndex="1" GridPane.rowIndex="1"
+                       onMouseClicked="#onChooseIPTextFieldMouseClicked">
 
             </TextField>
 

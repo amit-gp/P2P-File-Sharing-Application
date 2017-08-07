@@ -67,7 +67,7 @@ public class FileReceiver implements Runnable
 
             if(bufferSize > fileSize)
             {
-                callBack.downloadComplete();
+                //callBack.downloadComplete();
             }
 
             if(fileRead >= fileSize * 2)

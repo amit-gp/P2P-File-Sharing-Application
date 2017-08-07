@@ -67,6 +67,7 @@ public class PeerConnectionDetailsListViewCell extends ListCell<PeerConnectionDe
             {
                 acceptButton = new Button("Accept");
                 acceptButton.setOnAction(new EventHandler<ActionEvent>()
+                    
                 {
                     @Override
                     public void handle(ActionEvent event)

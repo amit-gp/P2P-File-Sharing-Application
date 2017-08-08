@@ -35,7 +35,7 @@ public class FileReceiver implements Runnable
     public void run()
     {
 
-        byte[] bytes = new byte[((int) fileSize)]; //buffer size
+        byte[] bytes = new byte[((int) fileSize) * 1024]; //buffer size
         bufferSize = bytes.length;
         try
         {
@@ -48,6 +48,14 @@ public class FileReceiver implements Runnable
 
         int length = 0;
         int fileRead = 0;
+
+            try
+            {
+
+            } catch (Exception socketException)
+            {
+
+            }
         while ((length = bufferedInputStream.read(bytes)) > 0)
         {
             try

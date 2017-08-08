@@ -15,18 +15,6 @@ public class FileSender implements Runnable
     private File file;
     private final CallBack callBack;
 
-    public interface CallBack
-    {
-        public void fileSent();
-    }
-
-    public FileSender(Socket socket, File file, CallBack callBack)
-    {
-        this.socket = socket;
-        this.file = file;
-        this.callBack = callBack;
-    }
-
     @Override
     public void run()
     {
@@ -58,6 +46,11 @@ public class FileSender implements Runnable
                 {
                     //System.out.println("File Completele sent");
                     callBack.fileSent();
+                    System.out.println("Closing the streams....");
+                    bufferedOutputStream.flush();
+                    fileInputStream.close();
+                    bufferedInputStream.close();
+                    bufferedOutputStream.close();
                 }
                 //System.out.println(bytes);
             }
@@ -73,5 +66,17 @@ public class FileSender implements Runnable
 
 
         }catch (Exception e){e.printStackTrace();}
+    }
+
+    public FileSender(Socket socket, File file, CallBack callBack)
+    {
+        this.socket = socket;
+        this.file = file;
+        this.callBack = callBack;
+    }
+
+    public interface CallBack
+    {
+        void fileSent();
     }
 }

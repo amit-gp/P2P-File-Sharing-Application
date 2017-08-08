@@ -16,11 +16,6 @@ public class AcceptSignalListener implements Runnable
     private DataInputStream dataInputStream;
     private final CallBack callBack;
 
-    public interface CallBack
-    {
-        public void requestAccepted();
-    }
-
     public AcceptSignalListener(Socket socket, CallBack callBack)
     {
         this.callBack = callBack;
@@ -30,25 +25,28 @@ public class AcceptSignalListener implements Runnable
     @Override
     public void run()
     {
-        while (true)
+        try
         {
-            try
+            inputStream = socket.getInputStream();
+            dataInputStream = new DataInputStream(inputStream);
+            System.out.println("InSignalreciver before accept");
+            //System.out.println(dataInputStream.readUTF());
+            JSONObject acceptObject = new JSONObject(dataInputStream.readUTF());
+            System.out.println("InSignalreciver after accept");
+            //if (acceptObject.getString("accept").equals("true"))
             {
-                inputStream = socket.getInputStream();
-                dataInputStream = new DataInputStream(inputStream);
-                System.out.println("InSignalreciver before accept");
-                //System.out.println(dataInputStream.readUTF());
-                JSONObject acceptObject = new JSONObject(dataInputStream.readUTF());
-                System.out.println("InSignalreciver after accept");
-                //if (acceptObject.getString("accept").equals("true"))
-                {
-                    System.out.println("User Accepted !!!");
-                    callBack.requestAccepted();
-                }
-            } catch (Exception e)
-            {
-                e.printStackTrace();
+                System.out.println("User Accepted !!!");
+                callBack.requestAccepted();
             }
+        } catch (Exception e)
+        {
+            e.printStackTrace();
         }
+
+    }
+
+    public interface CallBack
+    {
+        void requestAccepted();
     }
 }

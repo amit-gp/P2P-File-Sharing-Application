@@ -79,7 +79,7 @@ public class FileReceiver implements Runnable
             }
             if(fileRead >= fileSize * 2)
             {
-                callBack.downloadComplete();
+
             }
         }
         System.out.println("Outside");
@@ -89,6 +89,7 @@ public class FileReceiver implements Runnable
         bufferedOutputStream.flush();
         bufferedOutputStream.close();
         fileOutputStream.close();
+            callBack.downloadComplete();
         //inputStream.close();
         //System.out.println("Download complete");
         }catch (Exception e){e.printStackTrace();}

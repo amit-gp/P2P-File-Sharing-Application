@@ -40,6 +40,11 @@ public class FileSender implements Runnable
                 {
                     System.out.println("File Completele sent");
                     callBack.fileSent();
+                    System.out.println("Closing the streams....");
+                    bufferedOutputStream.flush();
+                    fileInputStream.close();
+                    bufferedInputStream.close();
+                    bufferedOutputStream.close();
                 }
 
                 if(fileRead >= file.length() * 2)

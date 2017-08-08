@@ -35,7 +35,7 @@ public class FileReceiver implements Runnable
     public void run()
     {
 
-        byte[] bytes = new byte[((int) fileSize)]; //buffer
+        byte[] bytes = new byte[((int) fileSize)]; //buffer size
         bufferSize = bytes.length;
         try
         {

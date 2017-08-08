@@ -35,7 +35,7 @@ public class FileReceiver implements Runnable
     public void run()
     {
 
-        byte[] bytes = new byte[((int)fileSize+1) * 1024]; //buffer
+        byte[] bytes = new byte[((int) fileSize)]; //buffer
         bufferSize = bytes.length;
         try
         {
@@ -55,7 +55,7 @@ public class FileReceiver implements Runnable
                 bufferedOutputStream.write(bytes, 0, length);
             }catch (IOException e)
             {
-                System.out.println("Stream finished.");
+                System.out.println("Stream finished IO exception.");
                 callBack.downloadComplete();
                 bufferedOutputStream.flush();
                 bufferedOutputStream.close();
@@ -63,18 +63,16 @@ public class FileReceiver implements Runnable
             }
             //System.out.println(bytes);
             fileRead += bufferSize/1000;
-            System.out.println(fileRead);
+            System.out.println(fileRead + ": fileRead |  filesize: " + fileSize);
 
             if(bufferSize > fileSize)
             {
-                callBack.downloadComplete();
+                //callBack.downloadComplete();
             }
-
             if(fileRead >= fileSize * 2)
             {
                 callBack.downloadComplete();
             }
-
         }
         System.out.println("Outside");
         //int bytesRead = inputStream.read(bytes, 0, bytes.length);
